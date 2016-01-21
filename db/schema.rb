@@ -11,6 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160121141325) do
+
+  create_table "connections", force: :cascade do |t|
+    t.string  "name",     limit: 255, null: false
+    t.string  "host",     limit: 15,  null: false
+    t.string  "user",     limit: 255, null: false
+    t.string  "password", limit: 255, null: false
+    t.integer "port",                 null: false
+  end
+
+  create_table "dbms", force: :cascade do |t|
+    t.string  "name",         limit: 25, null: false
+    t.integer "default_port",            null: false
+  end
 
 end

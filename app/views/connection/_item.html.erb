@@ -1,26 +1,30 @@
-<div class="ui special cards">
-  <div class="card">
-    <a class="ui right corner label">
-      <i class="big circle red icon"></i>
-    </a>
-    <div class="blurring dimmable image">
-      <div class="ui dimmer">
-        <div class="content">
-          <div class="center">
-            <div class="ui inverted button">Open Connection</div>
+<div class="column">
+  <div class="ui special cards">
+    <div class="card">
+      <a class="ui right corner label">
+        <i class="big circle red icon"></i>
+      </a>
+      <div class="blurring dimmable image">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <div class="ui inverted button">Open Connection</div>
+            </div>
           </div>
         </div>
+        <img src="http://semantic-ui.com/images/avatar2/large/kristy.png">
       </div>
-      <img src="http://semantic-ui.com/images/avatar2/large/kristy.png">
-    </div>
-    <div class="content">
-      <a class="header">OTRS_MMA</a>
-      <div class="meta">
-        <div>
-          <i class="user icon"></i>root
-        </div>
-        <div>
-          <i class="sitemap icon"></i>192.168.201.14:3306
+      <div class="content">
+        <a class="header item" data-content="<%= item.name %>">
+          <%= truncate(item.name, length: 22) %>
+        </a>
+        <div class="meta">
+          <div>
+            <i class="user icon"></i><%= item.user %>
+          </div>
+          <div>
+            <i class="sitemap icon"></i><%= "#{item.host}:#{item.port}"  %>
+          </div>
         </div>
       </div>
     </div>
@@ -31,4 +35,6 @@
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
+
+  $('.item').popup();
 </script>
