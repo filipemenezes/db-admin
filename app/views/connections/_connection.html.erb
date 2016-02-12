@@ -2,7 +2,7 @@
   <div class="ui special cards">
     <div class="card">
       <a class="ui right corner label">
-        <i class="big circle red icon"></i>
+        <i class="big circle <%= if connection.is_host_available? then 'green' else 'red' end %> icon"></i>
       </a>
       <div class="blurring dimmable image">
         <div class="ui dimmer">
@@ -15,26 +15,18 @@
         <img src="http://semantic-ui.com/images/avatar2/large/kristy.png">
       </div>
       <div class="content">
-        <a class="header item" data-content="<%= item.name %>">
-          <%= truncate(item.name, length: 22) %>
+        <a class="header item" data-content="<%= connection.name %>">
+          <%= truncate(connection.name, length: 22) %>
         </a>
         <div class="meta">
           <div>
-            <i class="user icon"></i><%= item.user %>
+            <i class="user icon"></i><%= connection.user %>
           </div>
           <div>
-            <i class="sitemap icon"></i><%= "#{item.host}:#{item.port}"  %>
+            <i class="sitemap icon"></i><%= "#{connection.host}:#{connection.port}"  %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  $('.special.cards .image').dimmer({
-    on: 'hover'
-  });
-
-  $('.item').popup();
-</script>

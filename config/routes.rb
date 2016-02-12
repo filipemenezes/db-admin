@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'connection#index'
+  resources :connections, only: [:new, :index]
 end

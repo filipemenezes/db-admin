@@ -1,0 +1,16 @@
+<div class="ui clearing">
+  <h1 class="ui left floated header">My Connections</h1>
+
+  <%= link_to new_connection_path, remote: true, class: 'large ui right floated labeled blue icon button' do %>
+    <i class="plus icon"></i>
+    Add Connection
+  <% end %>
+</div>
+
+<div class="ui section clearing divider"></div>
+
+<div class="ui stackable four column grid">
+  <%= render partial: 'connection', collection: @connections %>
+</div>
+
+<div id="modal-form"></div>
